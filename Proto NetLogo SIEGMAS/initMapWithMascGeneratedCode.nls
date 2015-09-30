@@ -1,0 +1,64 @@
+; Permit to create a representation of a map
+; Original file: Base de l'Ocupation des Sols (BOS) de La Réunion .jpg
+; Generated from: http://localhost/lim-sca/masc/index.php
+; Date: Tue, 09 Jun 2015 09:16:13 +0400
+; Map size: 150 x 126
+; Patch size: 8
+; There are 8 colors in the map:
+;    . pcolor [214 235 252] approximate-rgb = 99.1 (default color)
+;    . pcolor [190 224 243] approximate-rgb = 98.5
+;    . pcolor [71 132 72]   approximate-rgb = 53.9
+;    . pcolor [241 167 168] approximate-rgb = 17.9
+;    . pcolor [167 168 243] approximate-rgb = 107.7
+;    . pcolor [246 243 192] approximate-rgb = 48.5
+;    . pcolor [71 250 73]   approximate-rgb = 65.6
+;    . pcolor [250 250 72]  approximate-rgb = 45.8
+
+to initmap
+	clear-all
+
+    ; @RC a rajouter SVP dans génération de code
+
+    ifelse (Territory = "La Reunion" )
+    [
+      set g_mapContext "Base occupation des Sols (BOS) de La Réunion" ; @RC a rajouter
+      set g_defaultColor [214 235 252]
+
+      ; less deteriorated map zones
+      ; The first of this list will have not deteroration, the second 10 % max, the third 20 % max ... and the max is 90 %
+      set g_lessDeterioratedlist [[185 211 239] [206 219 246] [167 168 243] [71 250 73]] ;
+
+      set-patch-size 4
+      resize-world 0 150 0 126
+      import-pcolors-rgb "LaReunion.png"
+    ]
+    [ ifelse (Territory = "Analamanga" )
+      [
+        set g_mapContext "Analamanga"
+        set g_defaultColor [255 255 255]
+
+        ; less deteriorated map zones
+        ; The first of this list will have not deteroration, the second 10 % max, the third 20 % max ... and the max is 90 %
+        set g_lessDeterioratedlist [[245 197 195][227 242 194][0 0 0][208 208 141][208 208 141]]
+
+        set-patch-size 6
+        resize-world 0 100 0 120
+        import-pcolors-rgb "Analamanga.png"
+      ]
+      [ ifelse (Territory = "Itasy" )
+        [
+            set g_mapContext "Itasy"
+            set g_defaultColor [255 255 255]
+
+            ; less deteriorated map zones
+            ; The first of this list will have not deteroration, the second 10 % max, the third 20 % max ... and the max is 90 %
+            set g_lessDeterioratedlist [[32 122 239][252 232 193][178 134 143][0 0 0][0 0 0][250 222 166]]
+
+            set-patch-size 6
+            resize-world 0 100 0 71
+            import-pcolors-rgb "Itasy.png"
+        ]
+        [Beep output-print (word "ERR2: Map not found") Stop ] 
+      ]
+    ]
+end
