@@ -1,0 +1,7 @@
+"entityType","name","simuType","role","xPos","yPos"
+"agent","Agent ID1","(manager 176)","0","30","64"
+"agent","Agent ID2","(manager 162)","0","106","100"
+"agent","Agent ID3","(operator 106)","0","91","51"
+"agent","Agent ID4","(operator 140)","0","87","103"
+"agent","Agent ID5","(externalhelp 184)","0","44","73"
+"agent","Agent ID6","(externalhelp 188)","0","59","91"
